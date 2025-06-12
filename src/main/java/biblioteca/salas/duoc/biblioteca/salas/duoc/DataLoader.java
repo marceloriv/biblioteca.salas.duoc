@@ -1,15 +1,25 @@
 package biblioteca.salas.duoc.biblioteca.salas.duoc;
 
-import biblioteca.salas.duoc.biblioteca.salas.duoc.model.*;
-import biblioteca.salas.duoc.biblioteca.salas.duoc.repository.*;
-import net.datafaker.Faker;
+import java.util.Date;
+import java.util.List;
+import java.util.Random;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
-import java.util.Date;
-import java.util.List;
-import java.util.Random;
+
+import biblioteca.salas.duoc.biblioteca.salas.duoc.model.Carrera;
+import biblioteca.salas.duoc.biblioteca.salas.duoc.model.Estudiante;
+import biblioteca.salas.duoc.biblioteca.salas.duoc.model.Reserva;
+import biblioteca.salas.duoc.biblioteca.salas.duoc.model.Sala;
+import biblioteca.salas.duoc.biblioteca.salas.duoc.model.TipoSala;
+import biblioteca.salas.duoc.biblioteca.salas.duoc.repository.CarreraRepository;
+import biblioteca.salas.duoc.biblioteca.salas.duoc.repository.EstudianteRepository;
+import biblioteca.salas.duoc.biblioteca.salas.duoc.repository.ReservaRepository;
+import biblioteca.salas.duoc.biblioteca.salas.duoc.repository.SalaRepository;
+import biblioteca.salas.duoc.biblioteca.salas.duoc.repository.TipoSalaRepository;
+import net.datafaker.Faker;
 
 @Profile("dev")
 @Component
@@ -73,7 +83,7 @@ public class DataLoader implements CommandLineRunner {
         // Generar reservas
         for (int i = 0; i < 20; i++) {
             Reserva reserva = new Reserva();
-            reserva.(i + 1);
+            reserva.setId(i + 1);
             reserva.setEstudiante(estudiantes.get(random.nextInt(estudiantes.size())));
             reserva.setSala(salas.get(random.nextInt(salas.size())));
             reserva.setFechaSolicitada(new Date());
