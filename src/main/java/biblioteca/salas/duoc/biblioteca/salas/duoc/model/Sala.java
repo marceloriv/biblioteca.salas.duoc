@@ -1,6 +1,10 @@
 package biblioteca.salas.duoc.biblioteca.salas.duoc.model;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,7 +18,7 @@ public class Sala {
 
     @Id
     private Integer codigo;
-    private String nombre;}
+    private String nombre;
     private Integer capacidad;
     private Integer idInstituo;
 
@@ -23,6 +27,4 @@ public class Sala {
     private TipoSala tipoSala;
 
     // Getters and Setters
-
-
 }
